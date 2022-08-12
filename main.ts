@@ -61,6 +61,9 @@ function do_square () {
     }
 }
 input.onSound(DetectedSound.Loud, function () {
+    led.plot(4, 4)
+    basic.pause(100)
+    led.unplot(4, 4)
     if (soundflag == true) {
         soundflag = false
     } else {
@@ -68,6 +71,9 @@ input.onSound(DetectedSound.Loud, function () {
     }
 })
 input.onLogoEvent(TouchButtonEvent.Pressed, function () {
+    led.plot(4, 4)
+    basic.pause(100)
+    led.unplot(4, 4)
     if (soundflag == true) {
         soundflag = false
     } else {
