@@ -30,7 +30,9 @@ function do_z () {
     flag = 1
 }
 function playtone () {
-    music.playTone(300, music.beat(BeatFraction.Quarter))
+    if (soundflag == true) {
+        music.playTone(100, music.beat(BeatFraction.Quarter))
+    }
 }
 function do_square () {
     for (let index = 0; index <= 4; index++) {
@@ -58,9 +60,26 @@ function do_square () {
         led.unplot(0, 4 - index)
     }
 }
+input.onSound(DetectedSound.Loud, function () {
+    if (soundflag == true) {
+        soundflag = false
+    } else {
+        soundflag = true
+    }
+})
+input.onLogoEvent(TouchButtonEvent.Pressed, function () {
+    if (soundflag == true) {
+        soundflag = false
+    } else {
+        soundflag = true
+    }
+})
 let resultx = 0
 let flag = 0
 let pausetime = 0
+let soundflag = false
+input.setSoundThreshold(SoundThreshold.Loud, 225)
+soundflag = true
 pausetime = 150
 flag = 1
 basic.forever(function () {
