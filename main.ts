@@ -33,7 +33,7 @@ function do_square () {
 }
 function playtone () {
     if (soundflag == true) {
-        music.playTone(262, music.beat(BeatFraction.Eighth))
+        music.playTone(262, music.beat(BeatFraction.Sixteenth))
     }
 }
 function do_z () {
