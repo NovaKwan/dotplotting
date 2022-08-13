@@ -1,3 +1,10 @@
+/**
+ * -the playtone often kill both inputs and outpus that all sound and input triggers will have no repsonse
+ * 
+ * -it strangely work fine after adding 
+ * 
+ * analog set pitch pin p0,
+ */
 function do_square () {
     for (let index = 0; index <= 4; index++) {
         led.plot(index, 0)
@@ -25,9 +32,8 @@ function do_square () {
     }
 }
 function playtone () {
-    music.stopAllSounds()
     if (soundflag == true) {
-        music.playTone(262, music.beat(BeatFraction.Sixteenth))
+        music.playTone(262, music.beat(BeatFraction.Eighth))
     }
 }
 function do_z () {
@@ -95,6 +101,7 @@ soundflag = true
 pausetime = 150
 flag = 1
 music.setVolume(58)
+pins.analogSetPitchPin(AnalogPin.P0)
 basic.forever(function () {
     do_square()
     do_z()
